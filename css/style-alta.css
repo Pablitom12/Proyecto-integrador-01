@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFFAE0;
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr auto;
+}
+
+header{
+    padding: 10px 0;
+}
+
+.logo-search-bar{
+    display: flex;
+    align-items: center;
+    padding: 0 10% 10px 10%;
+}
+
+.logo-search-bar a img{
+    width: 40%;
+    height: auto;
+    cursor: pointer;
+}
+
+.logo-search-bar input[type="text"]{
+    width: 40%;
+    padding: 0.7%;
+    border: 1px solid #98A668;
+    border-radius: 5px 0 0 5px;
+    margin-left: 10px;
+    outline: none;
+}
+
+.logo-search-bar button{
+    padding: 0.7%;
+    background-color: #98A668;
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logo-search-bar button:hover{
+    background-color: #5F6F52;
+    color: #FFFAE0;
+}
+
+.menu{
+    background-color: #98A668;
+    color: #fff;
+    padding: 0.7% 10% 10px 10%;
+    text-align: center;
+}
+
+.menu ul{
+    display: flex;
+    list-style: none;
+}
+
+.menu ul li{
+    margin: 0 2.5%;
+}
+
+.menu ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.menu ul li a:hover{
+    color: #FFFAE0;
+}
+
+.formulario {
+    width: 50%;
+    margin: 1vw auto 4vw auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #939578;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.formulario h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FFFAE0;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea,
+.formulario button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.formulario textarea {
+    resize: none;
+}
+
+.formulario label {
+    display: block;
+    margin-bottom: 10px;
+    color: #FFFAE0;
+}
+
+.formulario button {
+    background-color: #FFFAE0;
+    color: #5F6F52;
+    border: none;
+    cursor: pointer;
+}
+
+.formulario button:hover {
+    background-color: #FFFAC0;
+}
+
+footer{
+    background-color: #5F6F52;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.footer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-logo{
+    margin: 0 0 0 10px;
+}
+
+.footer-logo img{
+    width: 50%;
+    height: auto;
+}
+
+.footer-social-media a{
+    color: #fff;
+}

@@ -1,0 +1,227 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFFAE0;
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr auto;
+}
+
+.logo-search-bar{
+    display: flex;
+    align-items: center;
+    padding: 0 10% 10px 10%;
+}
+
+.logo-search-bar a img{
+    width: 40%;
+    height: auto;
+    cursor: pointer;
+}
+
+.logo-search-bar input[type="text"]{
+    width: 40%;
+    padding: 0.7%;
+    border: 1px solid #98A668;
+    border-radius: 5px 0 0 5px;
+    margin-left: 10px;
+    outline: none;
+}
+
+.logo-search-bar button{
+    padding: 0.7%;
+    background-color: #98A668;
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logo-search-bar button:hover{
+    background-color: #5F6F52;
+    color: #FFFAE0;
+}
+
+.menu{
+    background-color: #98A668;
+    color: #fff;
+    padding: 0.7% 10% 10px 10%;
+    text-align: center;
+}
+
+.menu ul{
+    display: flex;
+    list-style: none;
+}
+
+.menu ul li{
+    margin: 0 2.5%;
+}
+
+.menu ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.menu ul li a:hover{
+    color: #FFFAE0;
+}
+
+.form-body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(../assets/contact-background-img.jpg); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+}
+
+.container-text{
+    margin:0 4vw 0 0;
+    color: white;
+}
+
+.container-text h2{
+    font-size: 3em
+    
+}
+
+.container-text p{
+    font-size: 1.5em;
+}
+
+.formulario input, .formulario textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: none;
+}
+.formulario button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.formulario button:hover {
+    background-color: #218838;
+}
+
+
+
+footer{
+    background-color: #5F6F52;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.footer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-logo{
+    margin: 0 0 0 10px;
+}
+
+.footer-logo img{
+    width: 50%;
+    height: auto;
+}
+
+.footer-social-media a{
+    color: #fff;
+}
+
+@media(max-width: 945px){
+
+    .logo-search-bar{
+        height: 60px;
+        margin-bottom: 0;
+    }
+
+    .logo-search-bar a img{
+        width: 100%;
+        height: 50px;
+    }
+
+    .container-text{
+        margin: 0 45px 0 0;
+    }
+
+    .container-form{
+        width: 50%;
+    }
+}
+
+@media (max-width: 617px){
+
+    .logo-search-bar input{
+        padding: 10px;
+    }
+
+    .form-body{
+        flex-direction: column ;
+        padding: 0;
+    }
+
+    .container-text{
+        margin: 0;
+    }
+
+    .container-form{
+        width: 80%;
+    }
+    
+}
+
+@media (max-width: 480px) {
+
+    .logo-search-bar button{
+        padding: 0 10% 0 10%;
+    }
+    
+    .logo-search-bar a img{
+        width: 100%;
+    }
+    
+    .logo-search-bar input[type="text"]{
+        width: 80%;
+        padding: 5px;
+    }
+    
+    .logo-search-bar button{
+        padding: 5px;
+    }
+    
+    .menu ul li a{
+        font-size: 1em;
+    }
+
+    .footer-logo{
+        width: 80px;
+        height: 60px;
+    }
+
+    .footer-logo img{
+        width: 100%;
+        height: 60px;
+    }
+
+    .footer-text-container{
+        font-size: 13px;
+    }
+}
