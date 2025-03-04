@@ -151,3 +151,120 @@ footer{
 .footer-social-media a{
     color: #fff;
 }
+
+/* Estilos originales */
+.formulario {
+    width: 50%;
+    margin: 1vw auto 4vw auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #939578;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.formulario h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FFFAE0;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea,
+.formulario button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.formulario textarea {
+    resize: none;
+}
+
+.formulario #descripcionCortaProducto{
+    height: 40px;
+}
+
+.formulario #descripcionLargaProducto{
+    height: 70px;
+}
+
+.formulario label {
+    display: block;
+    margin-bottom: 10px;
+    color: #FFFAE0;
+}
+
+.formulario button {
+    background-color: #FFFAE0;
+    color: #5F6F52;
+    border: none;
+    cursor: pointer;
+}
+
+.formulario button:hover {
+    background-color: #FFFAC0;
+}
+
+/* Media Queries para adaptabilidad */
+@media (max-width: 1200px) {
+    .formulario {
+        width: 60%;
+    }
+}
+
+@media (max-width: 992px) {
+    .formulario {
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    .formulario {
+        width: 80%;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .logo-search-bar button{
+        padding: 0 10% 0 10%;
+    }
+    
+    .logo-search-bar a img{
+        width: 50%;
+    }
+    
+    .logo-search-bar input[type="text"]{
+        width: 80%;
+        padding: 5px;
+    }
+    .logo-search-bar button{
+        padding: 5px;
+    }
+    .menu ul li a{
+        font-size: 1.1em;
+    }
+
+    .formulario {
+        width: 90%;
+    }
+
+    .footer-logo{
+        width: 80px;
+        height: 50px;
+    }
+
+    .footer-logo img{
+        width: 100%;
+        height: 60px;
+    }
+
+    .footer-text-container{
+        font-size: 13px;
+    }
+}
