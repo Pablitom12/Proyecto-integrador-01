@@ -125,14 +125,16 @@ header{
 
 .price{
     font-size: 1.2em;
+    margin-bottom: 10px;
 }
 
-.button-stars{
-    display: flex;
-    justify-content: space-between;
+.buy-button{
+    width: 100%;
+    text-align: center;
 }
 
 .buy-button button{
+    width: 100%;
     padding: 0.4em;
     background-color: #5F6F52;
     color: #FFFAE0;
@@ -148,11 +150,6 @@ header{
     color: #98A668;
 }
 
-.stars{
-    color: #FFFAE0;
-    margin: 0 10px 0 0;
-}
-    
 footer{
     background-color: #5F6F52;
     color: #fff;
@@ -254,15 +251,15 @@ footer{
     }
 
     .catalog{
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
 
     .product{
-        width: 80%;
+        width: 60%;
     }
 
     .product img{
-        height: 100px;
+        height: 150px;
     }
 
     .product h2{
@@ -280,10 +277,6 @@ footer{
     .buy-button button{
         padding: 4px;
         font-size: 12px;
-    }
-
-    .stars{
-        display: none;
     }
 
     .footer-logo{
