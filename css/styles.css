@@ -12,6 +12,10 @@ body{
     grid-template-rows: auto 1fr auto;
 }
 
+header{
+    padding: 10px 0;
+}
+
 .logo-search-bar{
     display: flex;
     align-items: center;
@@ -51,7 +55,7 @@ body{
 .menu{
     background-color: #98A668;
     color: #fff;
-    padding: 0.7% 10% 0.7% 10%;
+    padding: 0.7% 10% 10px 10%;
     text-align: center;
 }
 

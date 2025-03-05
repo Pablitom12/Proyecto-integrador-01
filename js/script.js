@@ -1,3 +1,5 @@
+//script del buscador del index
+
 function filtrarProductos() {
     const input = document.getElementById('buscador');
     const filter = input.value.toLowerCase();
@@ -15,32 +17,8 @@ function filtrarProductos() {
     }
 }
 
-function agregarProducto() {
-        const nombre = document.getElementById('nombreProducto').value;
-        const descripcion = document.getElementById('descripcionProducto').value;
+//script del formulario del alta de productos
 
-        if (nombre && descripcion) {
-            const productos = JSON.parse(localStorage.getItem('productos')) || [];
-            productos.push({ nombre, descripcion });
-            localStorage.setItem('productos', JSON.stringify(productos));
-            alert('Producto agregado correctamente.');
-            window.location.href = 'pagina_principal.html';
-        } else {
-            alert('Por favor, completa todos los campos.');
-        }
-    }
-
-function validarFormulario() {
-    const nombre = document.getElementById('nombre').value;
-    const regex = /^[a-zA-Z\s]+$/;
-
-    if (!regex.test(nombre)) {
-        alert('Por favor, ingresa un nombre válido sin números.');
-        return false;
-    }
-    return true;
-}
-    
 function agregarProducto() {
     const nombreProducto = document.getElementById('nombreProducto').value.trim();
     const precioProducto = document.getElementById('precioProducto').value.trim();
@@ -58,7 +36,7 @@ function agregarProducto() {
         
     if (!nombreProducto) mensajesError.push('El nombre del producto es obligatorio.');
     if (!precioProducto || isNaN(precioProducto) || parseFloat(precioProducto) <= 0) mensajesError.push('El precio del producto debe ser un número positivo.');
-    if (!stockProducto || isNaN(stockProducto) || parseInt(stockProducto) < 0) mensajesError.push('El stock del producto debe ser un número no negativo.');
+    if (!stockProducto || isNaN(stockProducto) || parseInt(stockProducto) < 0) mensajesError.push('El stock del producto no debe ser un número negativo.');
     if (!herbolario) mensajesError.push('El herbolario es obligatorio.');
     if (!categoriaProducto) mensajesError.push('La categoría del producto es obligatoria.');
     if (!descripcionCortaProducto) mensajesError.push('La descripción corta del producto es obligatoria.');
@@ -74,4 +52,17 @@ function agregarProducto() {
     }
         
     alert('Producto agregado exitosamente.');
+}
+
+//script del formulario de contacto
+
+function validarFormulario() {
+    const nombre = document.getElementById('nombre').value;
+    const regex = /^[a-zA-Z\s]+$/;
+
+    if (!regex.test(nombre)) {
+        alert('Por favor, ingresa un nombre válido sin números.');
+        return false;
+    }
+    return true;
 }
