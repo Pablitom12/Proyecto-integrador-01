@@ -1,0 +1,50 @@
+<header>
+        <div class="logo-search-bar">
+            <a href="../index.html">
+                <img src="../assets/logo.png" alt="logo">
+            </a>
+            <input type="text" id="buscador" onkeyup="filtrarProductos()" placeholder="Buscar...">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="alta.html">Alta</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="form-body">
+        <div class="container-text">
+            <h2>Contacto</h2>
+            <P>
+                Dejanos tu mensaje
+            </P>
+        </div>
+        <div class="container-form">
+            <form class="formulario" onsubmit="return validarFormulario()">
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <textarea id="comentarios" name="comentarios" rows="5" placeholder="Comentarios" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="../assets/logo.png" alt="logo">
+            </div>
+            <div class="footer-text-container">
+                <div class="footer-text">
+                    <p>© 2025 Plantas de la Suerte. Todos los derechos reservados.</p>
+                    <div class="footer-social-media">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
