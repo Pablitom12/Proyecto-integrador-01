@@ -18,7 +18,7 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => {
-    res.render('index.hbs', { title: 'Página Principal' });
+    res.render('index');
 });
 
 // Middleware para manejar errores
