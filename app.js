@@ -18,7 +18,7 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index.hbs', { title: 'Página Principal' });
 });
 
 // Middleware para manejar errores
@@ -27,9 +27,6 @@ app.use((req, res) => {
     res.status(404).send('<h1>404 - Página no encontrada</h1>');
 });
 
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('<h1>500 - Error interno del servidor</h1>');
-});
+
 
 module.exports = app; // Exportamos la configuración para usarla en el servidor
