@@ -1,6 +1,6 @@
 const app = require('./app'); // Importamos la configuración de Express
 
-const PORT = process.env.PORT || 8080;
+const PORT = 8080;
 
 // Iniciar el servidor
 app.listen(PORT, () => {

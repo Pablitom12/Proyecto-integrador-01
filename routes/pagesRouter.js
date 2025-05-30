@@ -1,19 +1,13 @@
+const { altaApp, homeApp, contactoApp, nosotrosApp } = require('../controllers/controllerRouter');
+
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
-    res.render('index');
-});
+router.get('/', homeApp);
 
-router.get('/alta', (req, res) => {
-    res.render('alta');
-});
+router.get('/alta', altaApp);
 
-router.get('/contacto', (req, res) => {
-    res.render('contacto');
-});
+router.get('/contacto', contactoApp);
 
-router.get('/nosotros', (req, res) => {
-    res.render('nosotros');
-});
+router.get('/nosotros', nosotrosApp);
 
-module.exports = router; // Exportamos el router para usarlo en app.js
+module.exports = router; 

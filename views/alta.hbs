@@ -1,21 +1,21 @@
-    <div class="formulario">
+    <form class="formulario" id="formularioAlta" method="POST" action="/api">
         <h1>Alta de Productos</h1>
-        <input type="text" id="nombreProducto" placeholder="Nombre del Producto">
-        <input type="number" id="precioProducto" placeholder="Precio">
-        <input type="number" id="stockProducto" placeholder="Stock">
-        <input type="text" id="Herbolario" placeholder="Herbolario (marca)">
-        <input type="text" id="categoriaProducto" placeholder="Categoría">
-        <textarea id="descripcionCortaProducto" placeholder="Descripción Corta"></textarea>
-        <textarea id="descripcionLargaProducto" placeholder="Descripción Larga"></textarea>
+        <input type="text" id="nombreProducto" name="nombreProducto" placeholder="Nombre del Producto" required>
+        <input type="number" id="precioProducto" name="precioProducto" placeholder="Precio" required>
+        <input type="number" id="stockProducto" name="stockProducto" placeholder="Stock" required>
+        <input type="text" id="herbolarioProducto" name="herbolarioProducto" placeholder="Herbolario (marca)" required>
+        <input type="text" id="categoriaProducto" name="categoriaProducto" placeholder="Categoría" required>
+        <textarea id="descripcionCortaProducto" name="descripcionCortaProducto" placeholder="Descripción Corta" required></textarea>
+        <textarea id="descripcionLargaProducto" name="descripcionLargaProducto" placeholder="Descripción Larga" required></textarea>
         <label>
             Envío sin cargo:
-            <select id="envioSinCargoProducto">
+            <select id="envioSinCargoProducto" name="envioSinCargoProducto" required>
                 <option value="si">Sí</option>
                 <option value="no">No</option>
             </select>
         </label>
-        <input type="number" id="edadDesdeProducto" placeholder="Edad Desde">
-        <input type="number" id="edadHastaProducto" placeholder="Edad Hasta">
-        <input type="file" id="fotoProducto">
-        <button onclick="agregarProducto()">Agregar Producto</button>
-    </div>
+        <input type="number" id="edadDesdeProducto" name="edadDesdeProducto" placeholder="Edad Desde" required>
+        <input type="number" id="edadHastaProducto" name="edadHastaProducto" placeholder="Edad Hasta" required>
+        <input type="file" id="fotoProducto" name="fotoProducto" required>
+        <button type="submit">Agregar Producto</button>
+    </form>
