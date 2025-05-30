@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const hbs = require('hbs'); 
 
 const app = express();
 
@@ -17,9 +18,11 @@ app.set('view engine', 'hbs');
 //Configuracion de rutas de hbs
 app.set('views', path.join(__dirname, 'views'));
 
-app.get('/', (req, res) => {
-    res.render('index');
-});
+//registramos la carpeta de partials
+hbs.registerPartials(path.join(__dirname, 'views/partials')); 
+
+const pagesRouter = require('./routes/pagesRouter'); // Importamos el router de páginas
+app.use('/', pagesRouter); // Usamos el router para manejar las rutas de la aplicación
 
 // Middleware para manejar errores
 app.use((req, res) => {
