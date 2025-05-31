@@ -1,13 +1,13 @@
 const datosProducto = require('../models/datosProductoModel');
 
 const envioDatosProducto = async (req, res) => {
-    const { nombreProducto, precioProducto, stockProducto, herbolario, categoriaProducto, descripcionCortaProducto, descripcionLargaProducto, envioSinCargoProducto, edadDesdeProducto, edadHastaProducto, fotoProducto } = req.body;
+    const { nombreProducto, precioProducto, stockProducto, herbolarioProducto, categoriaProducto, descripcionCortaProducto, descripcionLargaProducto, envioSinCargoProducto, edadDesdeProducto, edadHastaProducto, fotoProducto } = req.body;
 
     const nuevoProducto = new datosProducto({
         nombreProducto,
         precioProducto,
         stockProducto,
-        herbolario,
+        herbolarioProducto,
         categoriaProducto,
         descripcionCortaProducto,
         descripcionLargaProducto,
@@ -18,8 +18,8 @@ const envioDatosProducto = async (req, res) => {
     });
 
     try {
-        //await nuevoProducto.save();
-        res.status(200).render('respuesta');
+        await nuevoProducto.save();
+        res.status(200).render('index');
     }
 
     catch (error) {

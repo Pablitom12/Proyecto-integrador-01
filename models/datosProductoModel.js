@@ -4,7 +4,7 @@ const productoSchema = new mongoose.Schema({
     nombreProducto: { type: String, required: true },
     precioProducto: { type: Number, required: true },
     stockProducto: { type: Number, required: true },
-    herbolario: { type: String, required: true },
+    herbolarioProducto: { type: String, required: true },
     categoriaProducto: { type: String, required: true },
     descripcionCortaProducto: { type: String, required: true },
     descripcionLargaProducto: { type: String, required: true },
