@@ -1,19 +1,16 @@
-const mongoose = require('mongoose'); // Importamos Mongoose para manejar MongoDB
-const app = require('./app'); // Importamos la configuración de Express
-const MONGO_URI = 'mongodb://localhost:27017/Productos'; // Cambia esto según tu configuración de MongoDB
+require('dotenv').config(); 
 
-const port = process.env.PORT || 3000; // Puerto por defecto
+const express = require('express');
+const connectToMongoDB = require('./conexion/conexionMongo'); // Importamos la función de conexión a MongoDB
+const MONGO_URI = process.env.MONGO_URI; // Obtenemos la URI de MongoDB desde las variables de entorno
 
-app.listen(port, () => {  
-    console.log(`Servidor corriendo en http://localhost:${port}`);
+const app = require('./app'); // Importamos la configuración de la aplicación
+
+// Conectamos a la base de datos MongoDB
+connectToMongoDB(MONGO_URI)
+
+const PORT = process.env.PORT; // Definimos el puerto en el que escuchará la aplicación
+
+app.listen(PORT, async () => {
+    console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
-
-mongoose.connect(MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-.then(() => console.log('Conectado a MongoDB'))
-.catch(err => console.error('Error de conexión a MongoDB:', err));
-
-
-
