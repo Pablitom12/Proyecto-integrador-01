@@ -1,0 +1,21 @@
+<div>
+    <h1>Datos Mongo atlas</h1>
+
+    <ul>
+        {{#each productos}}
+            <li>
+                <strong>Nombre:</strong> {{this.nombreProducto}}<br>
+                <strong>Precio:</strong> ${{this.precioProducto}}<br>
+                <strong>Stock:</strong> {{this.stockProducto}}<br>
+                <strong>Herbolario:</strong> {{this.herbolarioProducto}}<br>
+                <strong>Categoría:</strong> {{this.categoriaProducto}}<br>
+                <strong>Descripción Corta:</strong> {{this.descripcionCortaProducto}}<br>
+                <strong>Descripción Larga:</strong> {{this.descripcionLargaProducto}}<br>
+                <strong>Envío sin cargo:</strong> {{this.envioSinCargoProducto}}<br>
+                <strong>Edad Desde:</strong> {{this.edadDesdeProducto}}<br>
+                <strong>Edad Hasta:</strong> {{this.edadHastaProducto}}<br>
+                <img src="{{this.fotoProducto}}" alt="Foto del Producto" style="width: 100px; height: auto;"><br>
+            </li>
+        {{/each}}
+    </ul>
+</div>
