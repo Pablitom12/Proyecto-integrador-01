@@ -1,4 +1,4 @@
-const { altaApp, homeApp, contactoApp, nosotrosApp, traermongoApp } = require('../controllers/controllerRouter');
+const { altaApp, homeApp, contactoApp, nosotrosApp, productosApp} = require('../controllers/controllerRouter');
 
 const router = require('express').Router();
 
@@ -10,6 +10,6 @@ router.get('/contacto', contactoApp);
 
 router.get('/nosotros', nosotrosApp);
 
-router.get('/traermongo', traermongoApp);
+router.get('/productos', productosApp);
 
 module.exports = router; 

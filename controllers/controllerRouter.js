@@ -14,8 +14,8 @@ const nosotrosApp = (req, res) => { // creamos una ruta para la página de nosot
     res.render('nosotros'); // renderizamos la vista nosotros.hbs
 }
 
-const traermongoApp = (req, res) => { // creamos una ruta para traer datos de MongoDB
-    res.render('traermongo'); // renderizamos la vista traermongo.hbs
+const productosApp = (req, res) => { // creamos una ruta para traer datos de MongoDB
+    res.render('productos'); // renderizamos la vista traermongo.hbs
 }
 
 module.exports = {
@@ -23,5 +23,5 @@ module.exports = {
     altaApp, // exportamos la función altaApp
     contactoApp, // exportamos la función contactoApp
     nosotrosApp, // exportamos la función nosotrosApp
-    traermongoApp
+    productosApp
 }

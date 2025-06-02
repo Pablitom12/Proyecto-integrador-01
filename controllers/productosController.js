@@ -1,4 +1,4 @@
-const datosProducto = require('../models/datosProductoModel');
+const datosProducto = require('../models/productosModel');
 
 const getProductos = async (req, res) => {
     try {
@@ -6,7 +6,7 @@ const getProductos = async (req, res) => {
 
         console.log('Productos obtenidos:', productos);
 
-        res.status(200).render('traermongo',{
+        res.status(200).render('productos',{
             productos: productos
         });
     } catch (error) {
@@ -17,19 +17,14 @@ const getProductos = async (req, res) => {
 
 // Controlador para manejar el envío de datos del producto
 const envioDatosProducto = async (req, res) => {
-    const { nombreProducto, precioProducto, stockProducto, herbolarioProducto, categoriaProducto, descripcionCortaProducto, descripcionLargaProducto, envioSinCargoProducto, edadDesdeProducto, edadHastaProducto, fotoProducto } = req.body;
+    const { nombreProducto, precioProducto, stockProducto, descripcionCortaProducto, envioSinCargoProducto, fotoProducto } = req.body;
 
     const nuevoProducto = new datosProducto({
         nombreProducto,
         precioProducto,
         stockProducto,
-        herbolarioProducto,
-        categoriaProducto,
         descripcionCortaProducto,
-        descripcionLargaProducto,
         envioSinCargoProducto,
-        edadDesdeProducto,
-        edadHastaProducto,
         fotoProducto
     });
 
