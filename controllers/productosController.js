@@ -22,12 +22,10 @@ const obtenerProductoPorId = async (req, res) => {
     }
 };
 
-// Controlador para manejar el envío de datos del producto
 const crearProducto = async (req, res) => {
     try {
         const { nombreProducto, precioProducto, stockProducto, descripcionCortaProducto, envioSinCargoProducto } = req.body;
 
-        // Validar que todos los campos requeridos estén presentes
         if (!nombreProducto || !precioProducto || !stockProducto || !descripcionCortaProducto || envioSinCargoProducto === undefined) {
             return res.status(400).json({ error: "Todos los campos son obligatorios" });
         }
