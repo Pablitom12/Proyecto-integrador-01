@@ -9,11 +9,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-// Ruta principal que sirve el index.html
-//app.get('/', (req, res) => {
-    //res.sendFile(path.join(__dirname, 'public'));
-//});
-
 app.set('view engine', 'hbs');
 
 //Configuracion de rutas de hbs
@@ -22,13 +17,13 @@ app.set('views', path.join(__dirname, 'views'));
 //registramos la carpeta de partials
 hbs.registerPartials(path.join(__dirname, 'views/partials')); 
 
-const pagesRouter = require('./routes/pagesRouter'); // Importamos el router de páginas
-const productosRouter = require('./routes/productosRouter'); // Importamos el router de datos del producto
+const pagesRouter = require('./routes/pagesRouter'); 
+const productosRouter = require('./routes/productosRouter'); 
+const carritoRouter = require('./routes/carritoRouter'); 
 
 app.use('/', pagesRouter); // Usamos el router para manejar las rutas de la aplicación
-app.use('/api', productosRouter); // Usamos el router para manejar las rutas de datos del producto
-
-
+app.use('/api', productosRouter); 
+app.use('/api', carritoRouter); 
 
 // Middleware para manejar errores
 app.use((req, res) => {
@@ -43,4 +38,4 @@ app.use((err, req, res, next) => {
 
 
 
-module.exports = app; // Exportamos la configuración para usarla en el servidor
+module.exports = app; 

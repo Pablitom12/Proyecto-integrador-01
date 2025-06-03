@@ -9,7 +9,7 @@ const app = require('./app'); // Importamos la configuración de la aplicación
 // Conectamos a la base de datos MongoDB
 connectToMongoDB(MONGO_URI)
 
-const PORT = process.env.PORT; // Definimos el puerto en el que escuchará la aplicación
+const PORT = process.env.PORT; 
 
 app.listen(PORT, () => {
     console.log(`Servidor escuchando en http://localhost:${PORT}`);
