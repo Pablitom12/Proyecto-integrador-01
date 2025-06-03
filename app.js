@@ -19,11 +19,9 @@ hbs.registerPartials(path.join(__dirname, 'views/partials'));
 
 const pagesRouter = require('./routes/pagesRouter'); 
 const productosRouter = require('./routes/productosRouter'); 
-const carritoRouter = require('./routes/carritoRouter'); 
 
 app.use('/', pagesRouter); // Usamos el router para manejar las rutas de la aplicación
 app.use('/api', productosRouter); 
-app.use('/api', carritoRouter); 
 
 // Middleware para manejar errores
 app.use((req, res) => {
