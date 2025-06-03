@@ -14,12 +14,14 @@ const obtenerProductoPorId = async (req, res) => {
     try {
         const producto = await Producto.findById(req.params.id);
         if (!producto) {
-            return res.status(404).json({ message: 'Producto no encontrado' });
+            return res.status(404).json({ mensaje: "Producto no encontrado" });
         }
+        res.json(producto);
     } catch (error) {
-        console.error('Error al obtener el producto:', error);
-        res.status(500).json({ message: 'Error al obtener el producto', error: error.message });
+        console.error("Error al obtener producto:", error);
+        res.status(500).json({ mensaje: "Error interno del servidor" });
     }
+
 };
 
 const crearProducto = async (req, res) => {
