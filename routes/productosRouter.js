@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const productoController = require('../controllers/productosController'); 
+const productoController = require('../controllers/productosController'); // Asegúrate de importar el controlador correctamente
 
-// Definir rutas 
-router.get('/productos', productoController.obtenerProductos); 
-router.get('/productos/:id', productoController.obtenerProductoPorId);
-router.post('/productos', productoController.crearProducto);
-router.put('/productos/:id', productoController.actualizarProducto);
-router.delete('/productos/:id', productoController.eliminarProducto);
+// Definir rutas correctamente
+router.get('/api/productos', productoController.obtenerProductos); 
+router.get('/api/productos/:id', productoController.obtenerProductoPorId);
+router.post('/api/productos', productoController.crearProducto);
+router.put('/api/productos/:id', productoController.actualizarProducto);
+router.delete('/api/productos/:id', productoController.eliminarProducto);
+
+router.get('/productos', productoController.obtenerProductos); // Ruta para obtener todos los productos
 
 module.exports = router;
