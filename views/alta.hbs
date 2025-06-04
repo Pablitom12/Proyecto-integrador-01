@@ -13,13 +13,5 @@
         </label>
         <input type="file" id="fotoProducto" name="fotoProducto" required>
         <button type="submit">Agregar Producto</button>
-        {{#if errores}}
-            <ul style="color: red;">
-                {{#each errores}}
-                    <li>{{this.msg}}</li>
-                {{/each}}
-            </ul>
-        {{/if}}
-
     </form>
 

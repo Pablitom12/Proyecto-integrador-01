@@ -6,28 +6,7 @@ const productoController = require('../controllers/productosController'); // Ase
 // Definir rutas correctamente
 router.get('/api/productos', productoController.obtenerProductos); 
 router.get('/api/productos/:id', productoController.obtenerProductoPorId);
-router.post('/api/productos',
-    [
-        check('nombreProducto')
-            .isString()
-            .notEmpty()
-            .matches(/^[A-Za-z\s]+$/)
-            .withMessage('El nombre solo puede contener letras y espacios'),
-        check('precioProducto')
-            .isNumeric()
-            .withMessage('El precio debe ser un número'),
-        check('stockProducto')
-            .isNumeric()
-            .withMessage('El stock debe ser un número'),
-        check('descripcionCortaProducto')
-            .isString()
-            .notEmpty()
-            .withMessage('La descripción corta debe ser un string y no puede estar vacía'),
-        check('envioSinCargoProducto')
-            .isIn(['si', 'no'])
-            .withMessage('El envío debe ser "si" o "no"')
-    ],
-    productoController.crearProducto
+router.post('/api/productos',productoController.crearProducto
 );
 
 
