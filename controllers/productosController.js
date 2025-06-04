@@ -1,4 +1,5 @@
 const Producto = require('../models/productosModel');
+const { validationResult } = require('express-validator');
 
 const obtenerProductos = async (req, res) => {
     try {
@@ -27,21 +28,32 @@ const obtenerProductoPorId = async (req, res) => {
     }
 };
 
-const crearProducto = async (req, res) => {
+crearProducto = async (req, res) => {
+    const errores = validationResult(req);
+    if (!errores.isEmpty()) {
+        return res.render('alta', { 
+            errores: errores.array(),
+            datos: req.body // Mantener los datos escritos en el formulario
+        });
+    }
+
     try {
         const { nombreProducto, precioProducto, stockProducto, descripcionCortaProducto, envioSinCargoProducto } = req.body;
 
-        if (!nombreProducto || !precioProducto || !stockProducto || !descripcionCortaProducto || envioSinCargoProducto === undefined) {
-            return res.status(400).json({ error: "Todos los campos son obligatorios" });
-        }
+        const nuevoProducto = new Producto({
+            nombreProducto,
+            precioProducto,
+            stockProducto,
+            descripcionCortaProducto,
+            envioSinCargoProducto
+        });
 
-        // Crear el nuevo producto
-        const nuevoProducto = new Producto(req.body);
         await nuevoProducto.save();
-        res.status(201).render('productos')
+        res.redirect('/productos'); // Redirige después de un envío exitoso
+
     } catch (error) {
         console.error("Error en crearProducto:", error);
-        res.status(500).json({ error: "Error al crear el producto" });
+        res.render('alta', { errores: [{ msg: "Error al guardar el producto" }], datos: req.body });
     }
 };
 
@@ -66,8 +78,6 @@ const eliminarProducto = async (req, res) => {
         res.status(500).json({ message: 'Error al eliminar el producto', error: error.message });
     }
 };
-
-console.log(Producto);
 
 module.exports = {
     obtenerProductos,
