@@ -7,8 +7,8 @@ const productoSchema = new mongoose.Schema({
     descripcionCortaProducto: { type: String, required: true },
     envioSinCargoProducto: { type: String, enum: ['si', 'no'], required: true },
     fotoProducto: { type: String } 
-}, { timestamps: false });
+}, { timestamps: true });
 
-const Producto = mongoose.model('Producto', productoSchema);
+const Product = mongoose.model('Producto', productoSchema);
 
-module.exports = Producto;
+module.exports = Product;

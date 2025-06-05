@@ -1,0 +1,26 @@
+    <div class="catalog-text">
+        <h2>Catálogo de Productos</h2>
+    </div>
+
+    <div class="catalog">
+        {{#each productos}}
+        <div class="product">
+            <img src="{{fotoProducto}}" alt="{{nombreProducto}}">
+            <h3>{{nombreProducto}}</h3>
+            <p>{{descripcionCortaProducto}}</p>
+            
+            <div class="price">
+                <span>${{precioProducto}}</span>
+                <span>Stock: {{stockProducto}}</span>
+            </div>
+            
+            {{#if envioSinCargoProducto}}
+                <p class="envio">🚚 ¡Envío sin cargo!</p>
+            {{/if}}
+            
+            <div class="buy-button">
+                <button>Agregar</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>

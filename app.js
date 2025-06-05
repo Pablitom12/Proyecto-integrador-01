@@ -23,12 +23,10 @@ app.set('views', path.join(__dirname, 'views'));
 hbs.registerPartials(path.join(__dirname, 'views/partials')); 
 
 const pagesRouter = require('./routes/pagesRouter'); // Importamos el router de páginas
-const productosRouter = require('./routes/productosRouter'); // Importamos el router de datos del producto
+const productRouter = require('./routes/productRouter'); // Importamos el router de datos del producto
 
 app.use('/', pagesRouter); // Usamos el router para manejar las rutas de la aplicación
-app.use('', productosRouter); // Usamos el router para manejar las rutas de datos del producto
-
-
+app.use('/', productRouter); // Usamos el router para manejar las rutas de datos del producto
 
 // Middleware para manejar errores
 app.use((req, res) => {

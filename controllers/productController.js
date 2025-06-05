@@ -1,29 +1,34 @@
-const Producto = require('../models/productosModel');
+const Producto = require('../models/productModel');
 
 const obtenerProductos = async (req, res) => {
     try {
         const productos = await Producto.find();
-        res.status(200).render('productos', { productos }); // Renderizar la vista 'productos' con los datos obtenidos
+        res.render('productos', { productos }); 
     }  catch (error) {
         console.error('Error al obtener los productos:', error);
         res.status(500).json({ message: 'Error al obtener los productos', error: error.message });
     }
 };
 
+const obtenerCards = async (req, res) => {
+    try {
+        const productos = await Producto.find();
+        res.render('cards', { productos }); // Renderizar la vista 'cards' con los productos
+    } catch (error) {
+        console.error('Error al obtener los productos para las cards:', error);
+        res.status(500).json({ message: 'Error al obtener los productos para las cards', error: error.message });
+    }
+};
+
 const obtenerProductoPorId = async (req, res) => {
     try {
-        const { id } = req.params;
-        console.log("Buscando producto con ID:", id); // Muestra el ID en la consola
-
-        const producto = await Producto.findById(id);
-        
+        const producto = await Producto.findById(req.params.id);
         if (!producto) {
-            return res.status(404).json({ mensaje: "Producto no encontrado" });
+            return res.status(404).json({ message: 'Producto no encontrado' });
         }
-
-        res.status(200).json(producto);
     } catch (error) {
-        res.status(500).json({ mensaje: "Error al obtener el producto", error });
+        console.error('Error al obtener el producto:', error);
+        res.status(500).json({ message: 'Error al obtener el producto', error: error.message });
     }
 };
 
@@ -38,12 +43,15 @@ const crearProducto = async (req, res) => {
         // Crear el nuevo producto
         const nuevoProducto = new Producto(req.body);
         await nuevoProducto.save();
-        res.status(201).json(nuevoProducto);
+        res.status(201).redirect('/productos'); // Redirigir a la lista de productos después de crear uno nuevo
+
     } catch (error) {
         console.error("Error en crearProducto:", error);
         res.status(500).json({ error: "Error al crear el producto" });
     }
 };
+
+
 
 const actualizarProducto = async (req, res) => {
     try {
@@ -67,6 +75,7 @@ const eliminarProducto = async (req, res) => {
 
 module.exports = {
     obtenerProductos,
+    obtenerCards,
     obtenerProductoPorId,
     crearProducto,
     actualizarProducto,

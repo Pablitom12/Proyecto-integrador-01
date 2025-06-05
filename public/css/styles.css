@@ -78,79 +78,6 @@ header{
     color: #FFFAE0;
 }
 
-.catalog-text{
-    padding: 10px 10% 10px 10%;
-    color: #5F6F52;
-}
-
-.catalog{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 10px 10% 10px 10%;
-    margin: 0 0 5% 0;
-}
-
-.product{
-    width: 25%;
-    padding: 1%;
-    margin: 1% 1%;
-    background-color: #98A668;
-    color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #5F6F52;
-    transition: 0.3s;
-}
-
-.product:hover{
-    box-shadow: 0 0 20px #5F6F52;
-}
-
-.product img{
-    width: 100%;
-    height: 250px;
-    margin: 0.5vw 0;
-}
-
-.product {
-    font-size: 0.9em;
-}
-
-
-.price{
-    display: flex;
-    justify-content: space-between;
-    padding: 0 1%;
-}
-
-.price{
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-.buy-button{
-    width: 50%;
-    text-align: center;
-}
-
-.buy-button button{
-    width: 100%;
-    padding: 0.6em 0 0.6em 0;
-    background-color: #5F6F52;
-    color: #FFFAE0;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 1.1em;
-    font-family: 'Poppins', sans-serif;
-}
-
-.buy-button button:hover{
-    background-color: #FFFAE0 ;
-    color: #98A668;
-}
-
 /*alta*/
 *{
     margin: 0;
@@ -215,7 +142,6 @@ body{
     background-color: #FFFAC0;
 }
 
-/* Estilos originales */
 .formulario {
     width: 50%;
     margin: 1vw auto 4vw auto;
@@ -290,6 +216,163 @@ body{
     .formulario {
         width: 80%;
     }
+}
+
+/* Productos */
+
+.title-producto {
+    color: #98A668;
+    font-size: 28px;
+    text-align: center;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #98A668;
+}
+
+th {
+    background-color: #98A668;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+/* Media queries para hacer la tabla responsiva */
+@media (max-width: 1024px) {
+    table {
+        width: 90%;
+    }
+    
+    th, td {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+    
+    th, td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    table, thead {
+        display: block;
+    }
+
+    tr {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    td {
+        display: block;
+        text-align: right;
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        color: #98A668;
+    }
+
+    th {
+        display: none;
+    }
+}
+
+/* Cards */
+
+.catalog-text{
+    padding: 10px 10% 10px 10%;
+    color: #5F6F52;
+}
+
+.catalog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+.product {
+    width: 280px;
+    padding: 15px;
+    background: linear-gradient(135deg, #5F6F52, #98A668);
+    color: #FFFAE0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+.product img {
+    width: 100%;
+    height: 220px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.product h3 {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+
+.product p {
+    font-size: 0.95em;
+    color: #FFFAE0;
+}
+
+.price {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.buy-button button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    background: #FFFAE0;
+    color: #5F6F52;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease, color 0.3s ease;
+}
+
+.buy-button button:hover {
+    background: #5F6F52;
+    color: #FFFAE0;
 }
 
 /* Contacto */
