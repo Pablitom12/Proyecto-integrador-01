@@ -65,8 +65,6 @@ const obtenerProductoParaEditar = async (req, res) => {
         if (!producto) {
             return res.status(404).send("Producto no encontrado");
         }
-        console.log("Producto obtenido:", producto);
-
         res.render('formularioUpdate', { producto });
 
     } catch (error) {
@@ -79,29 +77,25 @@ const obtenerProductoParaEditar = async (req, res) => {
 const actualizarProducto = async (req, res) => {
     try {
         const id = req.params.id;
-        const datosActualizados = req.body;
 
-        if (!mongoose.Types.ObjectId.isValid(id)) {
-            return res.status(400).json({ mensaje: "ID no válido" });
+        if (!id || !mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ mensaje: "ID no válido o faltante" });
         }
 
-        console.log("Datos recibidos:", req.body);
-
-        const producto = await Product.findByIdAndUpdate(id, datosActualizados, { new: true });
+        const datosActualizados = req.body;
+        const producto = await Producto.findByIdAndUpdate(id, datosActualizados, { new: true });
 
         if (!producto) {
             return res.status(404).json({ mensaje: "Producto no encontrado" });
         }
 
-        res.redirect('/productos'); // Redirige a la lista de productos después de actualizar
+        res.redirect('/productos'); // Redirige a la lista de productos
 
     } catch (error) {
         console.error("Error al actualizar producto:", error);
         res.status(500).json({ mensaje: "Error interno del servidor", error: error.message });
     }
 };
-
-
 
 eliminarProducto = async (req, res) => {
     try {
