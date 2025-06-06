@@ -5,6 +5,7 @@ const productController = require('../controllers/productController'); // Asegú
 router.get('/productos', productController.obtenerProductos); 
 router.get('/productos/:id', productController.obtenerProductoPorId);
 router.post('/productos', productController.crearProducto);
+router.get('/productos/editar/:id', productController.obtenerProductoParaEditar);
 router.post('/productos/update/:id', productController.actualizarProducto);
 router.post('/productos/delete/:id', productController.eliminarProducto);
 

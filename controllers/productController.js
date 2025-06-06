@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const Producto = require('../models/productModel');
 
 const obtenerProductos = async (req, res) => {
@@ -51,28 +52,56 @@ const crearProducto = async (req, res) => {
     }
 };
 
+const obtenerProductoParaEditar = async (req, res) => {
+    try {
+        const id = req.params.id;
+
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ mensaje: "ID no válido" });
+        }
+
+        const producto = await Producto.findById(id);
+
+        if (!producto) {
+            return res.status(404).send("Producto no encontrado");
+        }
+        console.log("Producto obtenido:", producto);
+
+        res.render('formularioUpdate', { producto });
+
+    } catch (error) {
+        console.error("Error al obtener producto:", error);
+        res.status(500).send("Error interno del servidor");
+    }
+};
+
+
 const actualizarProducto = async (req, res) => {
     try {
         const id = req.params.id;
-        const { nombreProducto, precioProducto, stockProducto, descripcionCortaProducto, envioSinCargoProducto } = req.body;
+        const datosActualizados = req.body;
 
-        if (!nombreProducto || !precioProducto || !stockProducto || !descripcionCortaProducto || envioSinCargoProducto === undefined) {
-            return res.status(400).json({ error: "Todos los campos son obligatorios" });
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ mensaje: "ID no válido" });
         }
 
-        const productoActualizado = await Producto.findByIdAndUpdate(id, req.body, { new: true });
+        console.log("Datos recibidos:", req.body);
 
-        if (!productoActualizado) {
+        const producto = await Product.findByIdAndUpdate(id, datosActualizados, { new: true });
+
+        if (!producto) {
             return res.status(404).json({ mensaje: "Producto no encontrado" });
         }
 
-        res.status(200).redirect('/productos'); // Redirigir a la lista de productos después de actualizar uno
+        res.redirect('/productos'); // Redirige a la lista de productos después de actualizar
 
     } catch (error) {
-        console.error("Error en actualizarProducto:", error);
-        res.status(500).json({ error: "Error al actualizar el producto" });
+        console.error("Error al actualizar producto:", error);
+        res.status(500).json({ mensaje: "Error interno del servidor", error: error.message });
     }
 };
+
+
 
 eliminarProducto = async (req, res) => {
     try {
@@ -100,6 +129,7 @@ module.exports = {
     obtenerCards,
     obtenerProductoPorId,
     crearProducto,
+    obtenerProductoParaEditar,
     actualizarProducto,
     eliminarProducto
 };

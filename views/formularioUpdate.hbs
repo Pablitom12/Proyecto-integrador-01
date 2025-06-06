@@ -1,0 +1,14 @@
+    <form class="formulario" id="formularioUpdate" method="put" action="/productos/update/{{_id}}">
+        <h1>Actualizar Producto</h1>
+        <input type="text" id="nombreProducto" name="nombreProducto" value="{{producto.nombreProducto}}" required>
+        <input type="number" id="precioProducto" name="precioProducto" value="{{producto.precioProducto}}" required>
+        <input type="number" id="stockProducto" name="stockProducto" value="{{producto.stockProducto}}" required>
+        <textarea id="descripcionCortaProducto" name="descripcionCortaProducto" required>{{producto.descripcionCortaProducto}}</textarea>
+        <select name="envioSinCargoProducto" required>
+            <option value="si" {{#if producto.envioSinCargoProducto}}selected{{/if}}>Sí</option>
+            <option value="no" {{#unless producto.envioSinCargoProducto}}selected{{/unless}}>No</option>
+        </select>
+        <input type="text" id="fotoProducto" name="fotoProducto" value="{{producto.fotoProducto}}" required>
+    <button type="submit">Actualizar Producto</button>
+    </form>
+

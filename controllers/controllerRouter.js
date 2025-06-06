@@ -1,27 +1,27 @@
-const homeApp = (req, res) => { // creamos una ruta para la página de inicio
-    res.render('index'); // renderizamos la vista index.hbs
+const homeApp = (req, res) => { 
+    res.render('index'); 
 }
 
-const altaApp = (req, res) => { // creamos una ruta para la página de alta
-    res.render('alta'); // renderizamos la vista alta.hbs
+const altaApp = (req, res) => { 
+    res.render('alta'); 
 }
 
-const contactoApp = (req, res) => { // creamos una ruta para la página de contacto
-    res.render('contacto'); // renderizamos la vista contacto.hbs
+const contactoApp = (req, res) => { 
+    res.render('contacto'); 
 }
 
-const nosotrosApp = (req, res) => { // creamos una ruta para la página de nosotros  
-    res.render('nosotros'); // renderizamos la vista nosotros.hbs
+const nosotrosApp = (req, res) => { 
+    res.render('nosotros'); 
 }
 
-const productosApp = (req, res) => { // creamos una ruta para traer datos de MongoDB
-    res.render('productos'); // renderizamos la vista traermongo.hbs
+const productosApp = (req, res) => { 
+    res.render('productos'); 
 }
 
 module.exports = {
-    homeApp, // exportamos la función homeApp
-    altaApp, // exportamos la función altaApp
-    contactoApp, // exportamos la función contactoApp
-    nosotrosApp, // exportamos la función nosotrosApp
+    homeApp, 
+    altaApp, 
+    contactoApp, 
+    nosotrosApp, 
     productosApp
 }

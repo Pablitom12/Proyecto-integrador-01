@@ -21,10 +21,9 @@
                 <td>{{this.descripcionCortaProducto}}</td>
                 <td>{{this.envioSinCargoProducto}}</td>
                 <td>
-                    <form action="/productos/update/{{_id}}" method="post">
-                        <button type="submit">Actualizar</button>
-                    </form>
-
+                    <a href="/productos/editar/{{_id}}">
+                        <button>Actualizar</button>
+                    </a>
                     <form action="/productos/delete/{{_id}}" method="post">
                         <button type="submit">Eliminar</button>
                     </form>
