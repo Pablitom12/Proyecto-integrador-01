@@ -5,9 +5,9 @@ const productController = require('../controllers/productController'); // Asegú
 router.get('/productos', productController.obtenerProductos); 
 router.get('/productos/:id', productController.obtenerProductoPorId);
 router.post('/productos', productController.crearProducto);
-router.put('/productos/:id', productController.actualizarProducto);
-router.delete('/productos/:id', productController.eliminarProducto);
+router.post('/productos/update/:id', productController.actualizarProducto);
+router.post('/productos/delete/:id', productController.eliminarProducto);
 
-router.get('/cards', productController.obtenerCards); // Ruta para obtener las tarjetas de productos
+router.get('/cards', productController.obtenerCards);  
 
 module.exports = router;

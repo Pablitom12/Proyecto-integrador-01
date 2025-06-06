@@ -1,17 +1,18 @@
-<h1 class="title-producto">Lista de productos</h1>
-<table border="1">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th>Descripción Corta</th>
-            <th>Envío sin Cargo</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each productos}}
+    <h1 class="title-producto">Lista de productos</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Descripción Corta</th>
+                <th>Envío sin Cargo</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each productos}}
             <tr>
                 <td>{{this._id}}</td>
                 <td>{{this.nombreProducto}}</td>
@@ -19,7 +20,17 @@
                 <td>{{this.stockProducto}}</td>
                 <td>{{this.descripcionCortaProducto}}</td>
                 <td>{{this.envioSinCargoProducto}}</td>
+                <td>
+                    <form action="/productos/update/{{_id}}" method="post">
+                        <button type="submit">Actualizar</button>
+                    </form>
+
+                    <form action="/productos/delete/{{_id}}" method="post">
+                        <button type="submit">Eliminar</button>
+                    </form>
+                </td>
             </tr>
-        {{/each}}
-    </tbody>
-</table>
+            {{/each}}
+        </tbody>
+    </table>
+

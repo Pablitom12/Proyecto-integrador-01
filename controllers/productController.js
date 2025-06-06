@@ -24,11 +24,11 @@ const obtenerProductoPorId = async (req, res) => {
     try {
         const producto = await Producto.findById(req.params.id);
         if (!producto) {
-            return res.status(404).json({ message: 'Producto no encontrado' });
+            return res.status(404).json({ mensaje: "Producto no encontrado" });
         }
+        res.json(producto);
     } catch (error) {
-        console.error('Error al obtener el producto:', error);
-        res.status(500).json({ message: 'Error al obtener el producto', error: error.message });
+        res.status(500).json({ mensaje: "Error del servidor" });
     }
 };
 
@@ -51,27 +51,49 @@ const crearProducto = async (req, res) => {
     }
 };
 
-
-
 const actualizarProducto = async (req, res) => {
     try {
-        const productoActualizado = await Producto.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        res.json(productoActualizado);
+        const id = req.params.id;
+        const { nombreProducto, precioProducto, stockProducto, descripcionCortaProducto, envioSinCargoProducto } = req.body;
+
+        if (!nombreProducto || !precioProducto || !stockProducto || !descripcionCortaProducto || envioSinCargoProducto === undefined) {
+            return res.status(400).json({ error: "Todos los campos son obligatorios" });
+        }
+
+        const productoActualizado = await Producto.findByIdAndUpdate(id, req.body, { new: true });
+
+        if (!productoActualizado) {
+            return res.status(404).json({ mensaje: "Producto no encontrado" });
+        }
+
+        res.status(200).redirect('/productos'); // Redirigir a la lista de productos después de actualizar uno
+
     } catch (error) {
-        console.error('Error al actualizar el producto:', error);
-        res.status(500).json({ message: 'Error al actualizar el producto', error: error.message });
+        console.error("Error en actualizarProducto:", error);
+        res.status(500).json({ error: "Error al actualizar el producto" });
     }
 };
 
-const eliminarProducto = async (req, res) => {
+eliminarProducto = async (req, res) => {
     try {
-        await Producto.findByIdAndDelete(req.params.id);
-        res.json({ message: 'Producto eliminado correctamente' });
+        const id = req.params.id;
+        const producto = await Producto.findById(id);
+
+        if (!producto) {
+            return res.status(404).json({ mensaje: "Producto no encontrado" });
+        }
+
+        await Producto.findByIdAndDelete(id);
+        res.status(200).redirect('/productos'); 
+
     } catch (error) {
-        console.error('Error al eliminar el producto:', error);
-        res.status(500).json({ message: 'Error al eliminar el producto', error: error.message });
+        console.error("Error al eliminar producto:", error);
+        res.status(500).json({ mensaje: "Error interno del servidor" });
     }
 };
+
+
+
 
 module.exports = {
     obtenerProductos,

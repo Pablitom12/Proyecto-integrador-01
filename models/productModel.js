@@ -7,7 +7,7 @@ const productoSchema = new mongoose.Schema({
     descripcionCortaProducto: { type: String, required: true },
     envioSinCargoProducto: { type: String, enum: ['si', 'no'], required: true },
     fotoProducto: { type: String } 
-}, { timestamps: true });
+}, { timestamps: false });
 
 const Product = mongoose.model('Producto', productoSchema);
 
