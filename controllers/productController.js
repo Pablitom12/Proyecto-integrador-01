@@ -14,7 +14,7 @@ const obtenerProductos = async (req, res) => {
 const obtenerCards = async (req, res) => {
     try {
         const productos = await Producto.find();
-        res.render('cards', { productos }); // Renderizar la vista 'cards' con los productos
+        res.render('plantas', { productos }); 
     } catch (error) {
         console.error('Error al obtener los productos para las cards:', error);
         res.status(500).json({ message: 'Error al obtener los productos para las cards', error: error.message });
@@ -97,7 +97,7 @@ const actualizarProducto = async (req, res) => {
     }
 };
 
-eliminarProducto = async (req, res) => {
+const eliminarProducto = async (req, res) => {
     try {
         const id = req.params.id;
         const producto = await Producto.findById(id);

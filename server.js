@@ -1,15 +1,14 @@
 require('dotenv').config(); 
 
 const express = require('express');
-const connectToMongoDB = require('./conexion/conexionMongo'); // Importamos la función de conexión a MongoDB
-const MONGO_URI = process.env.MONGO_ATLAS; // Obtenemos la URI de MongoDB desde las variables de entorno
+const connectToMongoDB = require('./conexion/conexionMongo'); 
+const MONGO_URI = process.env.MONGO_ATLAS; 
 
-const app = require('./app'); // Importamos la configuración de la aplicación
+const app = require('./app'); 
 
-// Conectamos a la base de datos MongoDB
 connectToMongoDB(MONGO_URI)
 
-const PORT = process.env.PORT; // Definimos el puerto en el que escuchará la aplicación
+const PORT = process.env.PORT; 
 
 app.listen(PORT, () => {
     console.log(`Servidor escuchando en http://localhost:${PORT}`);

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { crearCarrito } = require('../controllers/CarritoController');
+const { guardarCarrito } = require('../controllers/carritoController'); // Asegúrate de importar el controlador correctamente
 
-router.post('/', crearCarrito);
+router.post('/guardar/carrito', guardarCarrito);
 
 module.exports = router;
