@@ -1,4 +1,6 @@
 const mongoose = require('mongoose'); // Importamos Mongoose para manejar MongoDB
+console.log('🔍 URI recibida:', process.env.MONGO_ATLAS);
+
 
 const connectToMongoDB = async (MONGO_LOCAL) => {
     try {
