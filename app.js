@@ -14,7 +14,15 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
 //registramos la carpeta de partials
+
 hbs.registerPartials(path.join(__dirname, 'views/partials')); 
+
+hbs.registerHelper('ifCond', function (v1, operator, v2, options) {
+    switch (operator) {
+        case '===': return (v1 === v2) ? options.fn(this) : options.inverse(this);
+    }
+});
+
 
 const pagesRouter = require('./routes/pagesRouter'); 
 const productRouter = require('./routes/productRouter'); 
@@ -23,7 +31,7 @@ const carritoRouter = require('./routes/carritoRouter');
 
 app.use('/', pagesRouter); 
 app.use('/', productRouter); 
-app.use('/', carritoRouter);
+app.use('/carrito', carritoRouter);
 
 app.use((req, res) => {
     console.error(`Ruta no encontrada: ${req.originalUrl}`);

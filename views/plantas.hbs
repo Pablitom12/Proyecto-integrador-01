@@ -1,5 +1,6 @@
     <div class="catalog-text">
-        <h2>Catálogo de Productos</h2>
+        <h1>Plantas</h1>
+        <p>En esta sección encontrarás todas las plantas que tenemos disponibles para ti.</p>
     </div>
 
     <div class="catalog">
@@ -19,8 +20,110 @@
             {{/if}}
             
             <div class="buy-button">
-                <button>Agregar</button>
+                <button type="button"
+                    onclick="agregarAlCarrito('{{_id}}', '{{nombreProducto}}', {{precioProducto}}, {{stockProducto}})"
+                    {{#ifCond stockProducto '===' 0}}disabled{{/ifCond}}>
+                    Agregar
+                </button>
             </div>
         </div>
         {{/each}}
+    <div class="carrito oculto" id="carrito-box">
+        <h2>🛒 Carrito</h2>
+        <ul id="lista-carrito"></ul>
+        <p><strong>Total:</strong> $<span id="total-carrito">0</span></p>
+        <button id="btn-finalizar" onclick="finalizarCompra()">Finalizar compra</button>
     </div>
+
+    </div>
+    <script>
+        const carrito = [];
+
+        function agregarAlCarrito(id, nombre, precio) {
+        const existente = carrito.find(p => p.productoId === id);
+        if (existente) {
+            existente.cantidad += 1;
+            existente.subtotal = existente.cantidad * existente.precioProducto;
+        } else {
+            carrito.push({
+            productoId: id,
+            nombreProducto: nombre,
+            precioProducto: precio,
+            cantidad: 1,
+            subtotal: precio
+            });
+        }
+        renderCarrito();
+        }
+
+        function renderCarrito() {
+        const lista = document.getElementById('lista-carrito');
+        const total = document.getElementById('total-carrito');
+        lista.innerHTML = '';
+        let suma = 0;
+
+        carrito.forEach((item) => {
+            suma += item.subtotal;
+            const li = document.createElement('li');
+            li.textContent = `${item.nombreProducto} x${item.cantidad} - $${item.subtotal}`;
+            lista.appendChild(li);
+        });
+
+        total.textContent = suma;
+        }
+
+        function finalizarCompra() {
+            if (carrito.length === 0) {
+                alert('El carrito está vacío. Agrega al menos un producto.');
+                return;
+            }
+
+            fetch('/carrito', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ productos: carrito })
+            })
+                .then(res => res.json())
+                .then(data => {
+                console.log('Respuesta del servidor:', data);
+                alert('Compra enviada correctamente');
+                carrito.length = 0;
+                renderCarrito();
+                location.reload(); // 🔁 Recarga la página para actualizar el stock
+                })
+                .catch(err => {
+                console.error('Error al enviar carrito:', err);
+                alert('Hubo un problema al enviar el carrito');
+                });
+            }
+        function renderCarrito() {
+            const lista = document.getElementById('lista-carrito');
+            const total = document.getElementById('total-carrito');
+            const carritoBox = document.getElementById('carrito-box');
+            const btnFinalizar = document.getElementById('btn-finalizar');
+
+            lista.innerHTML = '';
+            let suma = 0;
+
+            if (carrito.length === 0) {
+                carritoBox.classList.add('oculto');
+                btnFinalizar.disabled = true;
+                total.textContent = '0';
+                return;
+            }
+
+            carritoBox.classList.remove('oculto');
+            btnFinalizar.disabled = false;
+
+            carrito.forEach((item) => {
+                suma += item.subtotal;
+                const li = document.createElement('li');
+                li.textContent = `${item.nombreProducto} x${item.cantidad} - $${item.subtotal}`;
+                lista.appendChild(li);
+            });
+
+            total.textContent = suma;
+        }
+
+    </script>
+

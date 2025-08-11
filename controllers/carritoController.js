@@ -32,10 +32,7 @@ const guardarCarrito = async (req, res) => {
         const carrito = new carritoModel({ productos: carritoProductos });
         await carrito.save();
 
-        return res.status(200).json({
-            mensaje: "Carrito guardado correctamente y stock actualizado",
-            carrito
-        });
+        return res.status(201).json({ mensaje: "Carrito guardado exitosamente", carrito });
 
     } catch (error) {
         console.error("Error al guardar el carrito:", error); // Agregar log en la consola

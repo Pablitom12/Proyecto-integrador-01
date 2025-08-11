@@ -89,7 +89,7 @@ const actualizarProducto = async (req, res) => {
             return res.status(404).json({ mensaje: "Producto no encontrado" });
         }
 
-        res.redirect('/productos'); // Redirige a la lista de productos
+        res.redirect('/productos'); 
 
     } catch (error) {
         console.error("Error al actualizar producto:", error);
